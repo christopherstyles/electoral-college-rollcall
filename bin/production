@@ -1,0 +1,2 @@
+#!/bin/sh
+HEROKU_APP=electoral-college-rollcall HKAPP=electoral-college-rollcall exec "${HEROKU_COMMAND:-heroku}" "$@"
