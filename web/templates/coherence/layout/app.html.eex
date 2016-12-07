@@ -7,15 +7,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello ElectoralCollegeRollcall!</title>
+    <title>Hello User!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
     <div class="container">
       <header class="header">
-        <nav role="navigation text-right">
+        <nav role="navigation">
           <ul class="nav nav-pills">
+          <li>
+            <a href="<%= page_path(@conn, :index) %>">Home</a>
+          </li>
           <%= ElectoralCollegeRollcall.Coherence.ViewHelpers.coherence_links(@conn, :layout) %>
           </ul>
         </nav>

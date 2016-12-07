@@ -41,3 +41,7 @@ config :electoral_college_rollcall, ElectoralCollegeRollcall.Repo,
   database: "electoral_college_rollcall_dev",
   hostname: "localhost",
   pool_size: 10
+
+# Configure email
+config :coherence, ElectoralCollegeRollcall.Coherence.Mailer,
+  adapter: Swoosh.Adapters.Local

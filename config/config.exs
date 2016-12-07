@@ -25,3 +25,16 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+# %% Coherence Configuration %%   Don't remove this line
+config :coherence,
+  user_schema: ElectoralCollegeRollcall.User,
+  repo: ElectoralCollegeRollcall.Repo,
+  module: ElectoralCollegeRollcall,
+  logged_out_url: "/",
+  email_from_name: "Electoral College Rollcall",
+  email_from_email: "info@electoral-college-rollcall.herokuapp.com",
+  opts: [:rememberable, :confirmable, :invitable, :authenticatable, :recoverable, :lockable, :trackable, :unlockable_with_token, :registerable]
+
+
+# %% End Coherence Configuration %%
