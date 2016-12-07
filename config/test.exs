@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :electoral_college_rollcall, ElectoralCollegeRollcall.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "electoral_college_rollcall",
+  password: "",
   database: "electoral_college_rollcall_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
