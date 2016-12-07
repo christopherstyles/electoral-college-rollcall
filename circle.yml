@@ -21,5 +21,5 @@ deployment:
   production:
     branch: master
     commands:
-      - git push git@heroku.com:electoral-college-rollcall.git$CIRCLE_SHA1:master
+      - git push git@heroku.com:electoral-college-rollcall.git $CIRCLE_SHA1:master
       - heroku run "POOL_SIZE=2 mix ecto.migrate" --app electoral-college-rollcall
