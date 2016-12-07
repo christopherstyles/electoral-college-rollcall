@@ -1,0 +1,2 @@
+alias ElectoralCollegeRollcall.User
+alias ElectoralCollegeRollcall.Repo
