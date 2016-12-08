@@ -35,6 +35,18 @@ config :coherence,
   email_from_name: "Electoral College Rollcall",
   email_from_email: "info@electoral-college-rollcall.herokuapp.com",
   opts: [:rememberable, :confirmable, :invitable, :authenticatable, :recoverable, :lockable, :trackable, :unlockable_with_token, :registerable]
-
-
 # %% End Coherence Configuration %%
+
+# Configure ExAdmin
+config :ex_admin,
+  repo: ElectoralCollegeRollcall.Repo,
+  module: ElectoralCollegeRollcall,
+  modules: [
+    ElectoralCollegeRollcall.ExAdmin.Dashboard,
+    ElectoralCollegeRollcall.ExAdmin.Elector,
+    ElectoralCollegeRollcall.ExAdmin.State,
+    ElectoralCollegeRollcall.ExAdmin.User,
+  ]
+
+config :xain, :after_callback, {Phoenix.HTML, :raw}
+
