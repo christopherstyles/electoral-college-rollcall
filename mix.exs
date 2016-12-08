@@ -52,6 +52,7 @@ defmodule ElectoralCollegeRollcall.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:coherence, "~> 0.3"},
       {:cowboy, "~> 1.0"},
+      {:ex_admin, "~> 0.8"},
       {:junit_formatter, "~> 1.1", only: :test},
       {:gettext, "~> 0.11"}
     ]

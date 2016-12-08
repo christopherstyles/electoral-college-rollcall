@@ -5,7 +5,7 @@ defmodule ElectoralCollegeRollcall.ElectorTest do
 
   @valid_attrs %{
     name: "Lulu Bailey",
-    state: "MD"
+    state_id: 1
   }
 
   @invalid_attrs %{}

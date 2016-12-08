@@ -2,3 +2,26 @@
   <h2><%= gettext "Welcome to the %{name}", name: "Electoral College Rollcall" %></h2>
   <p class="lead">2016 POTUS Electoral College Electors status and contact information.</p>
 </div>
+
+<%= if @electors |> length > 0 do %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Elector Name</th>
+        <th>State</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <%= for elector <- @electors do %>
+      <tr>
+        <td><%= "#{elector.name}" %></td>
+        <td><%= "#{elector.state.name}" %></td>
+        <td><%= "#{elector.email}" %></td>
+        <td><%= "#{elector.address}" %></td>
+        <td><%= "#{elector.phone}" %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
