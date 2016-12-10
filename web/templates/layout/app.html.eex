@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <header class="header">
         <nav role="navigation text-right">
           <ul class="nav nav-pills">
@@ -28,7 +28,7 @@
         <%= render @view_module, @view_template, assigns %>
       </main>
 
-    </div> <!-- /container -->
+    </div> <!-- /container-fluid -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

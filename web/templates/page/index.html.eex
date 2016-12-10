@@ -3,25 +3,59 @@
   <p class="lead">2016 POTUS Electoral College Electors status and contact information.</p>
 </div>
 
-<%= if @electors |> length > 0 do %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Elector Name</th>
-        <th>State</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Phone</th>
-      </tr>
-    </thead>
-    <%= for elector <- @electors do %>
-      <tr>
-        <td><%= "#{elector.name}" %></td>
-        <td><%= "#{elector.state.name}" %></td>
-        <td><%= "#{elector.email}" %></td>
-        <td><%= "#{elector.address}" %></td>
-        <td><%= "#{elector.phone}" %></td>
-      </tr>
+<form class="form-inline">
+  <div class="form-group">
+    <label for="state_select">Jump to a State</label>
+    <select id="state_select">
+    <%= for state <- @states do %>
+      <option value="<%= state.name %>"><%= state.name %></option>
     <% end %>
-  </table>
+    </select>
+  </div>
+</form>
+
+<%= for { state, electors } <- grouped_electors(@conn) do %>
+  <div id="<%= state %>"></div>
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= state %></div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Elector Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Party</th>
+          <th>Nominal Vote Status</th>
+          <th>Hamilton Vote Status</th>
+          <th>Politico Profile</th>
+          <th>Politico Elector #</th>
+        </tr>
+      </thead>
+      <%= for elector <- electors do %>
+        <tr>
+          <td><%= "#{elector.name}" %></td>
+          <td><%= "#{elector.email}" %></td>
+          <td><%= "#{elector.address}" %></td>
+          <td><%= "#{elector.phone}" %></td>
+          <td><%= "#{elector.party}" %></td>
+          <td><%= "#{elector.nominal_status}" %></td>
+          <td><%= "#{elector.hamilton_status}" %></td>
+          <td><%= "#{elector.politico_profile}" %></td>
+          <td><%= "#{elector.politico_elector_number}" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 <% end %>
+
+<script type="text/javascript">
+  var el = document.getElementById("state_select")
+
+  function selectState(e) {
+    var hash = el.options[el.selectedIndex].value;
+    location.hash = "#" + hash;
+  }
+
+  el.addEventListener("change", selectState, false);
+</script>
